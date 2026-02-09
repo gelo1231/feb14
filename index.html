@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>will you be my valentine</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(image.gif);
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #fff;
+      font-family: monospace;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s ease;
+      
+    }
+    #yesBtn {
+      background: #4CAF50;
+      color: white;
+    }
+    #noBtn {
+      background: #f44336;
+      color: white;
+      position: absolute;
+    }
+    img {
+      width: 408px;
+      margin: auto;
+      display: none;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💕 Will You Be my Valentine? 💕</h1>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+    <br>
+    <img id="happyImg" src="image2.gif" alt="Happy">
+  </div>
+
+ <script>
+const yesBtn = document.getElementById('yesBtn');
+const noBtn = document.getElementById('noBtn');
+const happyImg = document.getElementById('happyImg');
+
+
+let yesSize = 1.2;
+let noClicks = 0;
+
+
+yesBtn.addEventListener('click', () => {
+document.querySelector('h1').innerText = '😘😘I love you lovey 😘😘';
+happyImg.style.display = 'block';
+yesBtn.style.display = 'none';
+noBtn.style.display = 'none';
+});
+
+
+noBtn.addEventListener('click', () => {
+noClicks++;
+
+
+if (noClicks >= 10) {
+noBtn.style.display = 'none';
+return;
+}
+
+
+const x = Math.random() * (window.innerWidth - 100);
+const y = Math.random() * (window.innerHeight - 50);
+
+
+noBtn.style.left = x + 'px';
+noBtn.style.top = y + 'px';
+
+
+yesSize += 2.2;
+yesBtn.style.transform = `scale(${yesSize})`;
+});
+</script>
+</body>
+</html>
